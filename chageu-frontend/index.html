@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>USDT转账查询_USDT交易查询_USDT转账记录查询工具 - 查个U</title>
     <link rel='stylesheet' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
-    <style>img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}</style>
+    <style>
+        img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+        .site-logo { text-decoration: none; display: flex; flex-direction: column; }
+    </style>
 </head>
 <body class="home blog wp-theme-chau usdt-theme">
 
@@ -15,7 +18,7 @@
         <a class="site-logo" href="index.html">
             <span>查个U</span><small>USDT交易记录查询工具</small>        
         </a>
-        <button class="menu-toggle" type="button" data-menu-toggle>
+        <button class="menu-toggle" type="button" aria-label="打开菜单" data-menu-toggle>
             <span></span><span></span><span></span>
         </button>
         <nav class="main-nav" data-main-nav>
@@ -55,14 +58,14 @@
                     <p class="usdt-search-note">本站仅查询公开链上信息，请勿输入私钥、助记词、钱包密码、交易所密码或验证码。</p>
                 </div>
 
-                <!-- 汇率占位（原站通过 WP 动态加载，这里保留原版样式） -->
                 <section class="usdt-rate-bar" data-rate-wrap>
-                    <div class="rate-card"><span>USDT参考汇率</span><strong data-rate="USDT">加载中</strong></div>
-                    <div class="rate-card"><span>TRX参考汇率</span><strong data-rate="TRX">加载中</strong></div>
-                    <div class="rate-card"><span>USDT/CNY</span><strong data-rate="USDT_CNY">加载中</strong></div>
-                    <div class="rate-card"><span>TRX/CNY</span><strong data-rate="TRX_CNY">加载中</strong></div>
+                    <div class="rate-card"><span>USDT参考汇率</span><strong data-rate="USDT">≈ 1.00 USD</strong></div>
+                    <div class="rate-card"><span>TRX参考汇率</span><strong data-rate="TRX">≈ 0.33 USD</strong></div>
+                    <div class="rate-card"><span>USDT/CNY</span><strong data-rate="USDT_CNY">≈ 7.24 CNY</strong></div>
+                    <div class="rate-card"><span>TRX/CNY</span><strong data-rate="TRX_CNY">≈ 2.39 CNY</strong></div>
                 </section>
             </div>
+
             <div class="site-notice-red">
                 <strong>重要提醒：</strong>本站只提供USDT转账公开链上信息查询，不提供交易、充值、提现、资金找回或投资建议。
             </div>
@@ -75,10 +78,10 @@
                 <a class="service-card service-energy" href="energy.html">
                     <div class="service-icon">租</div><h3>能量供应商</h3><p>一笔也是批发价</p>
                 </a>
-                <a class="service-card service-tg" href="https://t.me/doubaotrx_bot" target="_blank">
+                <a class="service-card service-tg" href="https://t.me/doubaotrx_bot" target="_blank" rel="nofollow sponsored noopener noreferrer">
                     <div class="service-icon">TG</div><h3>TG机器人</h3><p>USDT与TRX交易提醒</p>
                 </a>
-                <a class="service-card service-trx" href="https://t.me/doubaotrx_bot" target="_blank">
+                <a class="service-card service-trx" href="https://t.me/doubaotrx_bot" target="_blank" rel="nofollow sponsored noopener noreferrer">
                     <div class="service-icon">TRX</div><h3>TRX自动闪兑</h3><p>USDT⇌TRX</p>
                 </a>
                 <a class="service-card service-usdt" href="energy.html">
@@ -181,7 +184,6 @@
 </footer>
 
 <button class="backtop" type="button" data-backtop>↑</button>
-<!-- 引入原站 JS 保证菜单和回到顶部功能可用 -->
 <script src="https://chauba.com/wp-content/themes/chau/assets/js/app.js?ver=1.1.0"></script>
 </body>
 </html>
