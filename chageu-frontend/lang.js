@@ -141,4 +141,28 @@ async function initLanguage() {
 
 document.addEventListener("DOMContentLoaded", function() {
     initLanguage();
+    
+    // === 移动端菜单折叠逻辑 ===
+    var menuToggle = document.querySelector('[data-menu-toggle]');
+    var mainNav = document.querySelector('[data-main-nav]');
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('open');
+        });
+    }
+
+    // === 返回顶部按钮逻辑 ===
+    var backtop = document.querySelector('[data-backtop]');
+    if (backtop) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 450) {
+                backtop.classList.add('show');
+            } else {
+                backtop.classList.remove('show');
+            }
+        });
+        backtop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
