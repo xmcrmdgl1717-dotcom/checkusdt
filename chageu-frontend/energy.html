@@ -11,7 +11,8 @@
     <div class="header-topline"></div>
     <div class="container header-inner">
         <a class="site-logo" href="index.html"><span>查个U</span><small>USDT交易记录查询工具</small></a>
-        <nav class="main-nav">
+        <button class="menu-toggle" type="button" data-menu-toggle><span></span><span></span><span></span></button>
+        <nav class="main-nav" data-main-nav>
             <ul class="nav-menu">
                 <li><a href="index.html">首页</a></li>
                 <li><a href="usdt.html">USDT转账查询</a></li>
@@ -36,10 +37,9 @@
             <div class="content-box">
                 <h3>闪租收款地址 (仅限 TRX)</h3>
                 <div style="background: #f7f8fb; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 16px; word-break: break-all; border: 1px dashed #ccc;">
-                    TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1 <!-- 替换为你自己的真实地址 -->
+                    TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1 <!-- 记得替换为你自己的真实地址 -->
                 </div>
                 <button class="header-action" style="border:none; cursor:pointer;" onclick="navigator.clipboard.writeText('TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1'); alert('地址已复制');">一键复制地址</button>
-
                 <ul class="check-list" style="margin-top: 30px;">
                     <li><strong>2 TRX = 65,000 能量</strong></li>
                     <li><strong>4 TRX = 131,000 能量</strong> (接收方首次持有USDT)</li>
@@ -60,32 +60,18 @@
 </main>
 
 <footer class="site-footer">
-    <div class="container footer-bottom">
-        <p>© 2026 查个U. 所有查询结果仅供参考。</p>
-    </div>
+    <div class="container footer-bottom"><p>© 2026 查个U. 所有查询结果仅供参考。</p></div>
 </footer>
-
 <script>
-    // 后端 API 地址
     const API_BASE_URL = 'https://chageu-energy-backend.onrender.com';
-
     async function checkOrder() {
         const txId = document.getElementById('orderTxId').value.trim();
         const resultDiv = document.getElementById('orderResult');
-        
-        if (txId.length !== 64) {
-            resultDiv.innerHTML = '<span style="color:red;">请输入 64 位正确的 TxID</span>';
-            return;
-        }
-        
+        if (txId.length !== 64) { resultDiv.innerHTML = '<span style="color:red;">请输入 64 位正确的 TxID</span>'; return; }
         resultDiv.innerHTML = '<span style="color:#64748b;">查询中，若是首次访问，免费服务器可能需要唤醒50秒...</span>';
-        
         try {
             const res = await fetch(`${API_BASE_URL}/api/orders/${txId}`);
-            if (res.status === 404) {
-                resultDiv.innerHTML = '<span style="color:red;">未找到订单，请确认是否转账或等待一分钟。</span>';
-                return;
-            }
+            if (res.status === 404) { resultDiv.innerHTML = '<span style="color:red;">未找到订单，请确认是否转账或等待一分钟。</span>'; return; }
             const data = await res.json();
             if (data.status === 'success') {
                 resultDiv.innerHTML = `<span style="color:green;">✅ 能量已成功到账！<br>接收地址：${data.from_address}<br>能量数：${data.energy_amount}</span>`;
@@ -99,5 +85,6 @@
         }
     }
 </script>
+<script src="https://chauba.com/wp-content/themes/chau/assets/js/app.js?ver=1.1.0"></script>
 </body>
 </html>
