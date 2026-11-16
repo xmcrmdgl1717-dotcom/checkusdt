@@ -1,33 +1,23 @@
-CREATE DATABASE IF NOT EXISTS chageu_energy
-  DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE chageu_energy;
-
-CREATE TABLE IF NOT EXISTS energy_orders (
-  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  tx_id VARCHAR(64) NOT NULL,
+CREATE TABLE energy_orders (
+  id BIGSERIAL PRIMARY KEY,
+  tx_id VARCHAR(64) NOT NULL UNIQUE,
   from_address VARCHAR(64) NOT NULL,
-  amount_trx DECIMAL(20,6) NOT NULL,
-  energy_amount BIGINT UNSIGNED NOT NULL,
-  batches TINYINT UNSIGNED NOT NULL,
-  status ENUM('pending','delegating','success','failed','anomaly') NOT NULL DEFAULT 'pending',
-  delegate_tx_id VARCHAR(64) DEFAULT NULL,
-  error_message VARCHAR(255) DEFAULT NULL,
-  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  UNIQUE KEY uk_tx_id (tx_id),
-  KEY idx_status (status),
-  KEY idx_from (from_address)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  amount_trx NUMERIC(20,6) NOT NULL,
+  energy_amount BIGINT NOT NULL,
+  batches SMALLINT NOT NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'pending',
+  delegate_tx_id VARCHAR(64),
+  error_message VARCHAR(255),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
-CREATE TABLE IF NOT EXISTS anomaly_transfers (
-  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  tx_id VARCHAR(64) NOT NULL,
+CREATE TABLE anomaly_transfers (
+  id BIGSERIAL PRIMARY KEY,
+  tx_id VARCHAR(64) NOT NULL UNIQUE,
   from_address VARCHAR(64) NOT NULL,
-  amount_trx DECIMAL(20,6) NOT NULL,
+  amount_trx NUMERIC(20,6) NOT NULL,
   reason VARCHAR(255) NOT NULL,
-  resolved TINYINT(1) NOT NULL DEFAULT 0,
-  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY uk_anomaly_tx (tx_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  resolved SMALLINT NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
