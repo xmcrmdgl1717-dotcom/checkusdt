@@ -119,7 +119,6 @@
 
 <script src="lang.js"></script>
 <script>
-    // 复制功能独立逻辑
     (function () {
         var copyBtn = document.getElementById('copyEnergyAddress');
         var addressEl = document.getElementById('energyWalletAddress');
@@ -129,7 +128,6 @@
         copyBtn.addEventListener('click', function () {
             var address = addressEl.textContent.trim();
             navigator.clipboard.writeText(address).then(function() {
-                // 利用字典获取当前语言的提示词
                 var lang = localStorage.getItem('site_lang') || 'zh';
                 copyBtn.textContent = globalI18n[lang]['energy_copied'];
                 statusEl.textContent = globalI18n[lang]['energy_copy_success'];
