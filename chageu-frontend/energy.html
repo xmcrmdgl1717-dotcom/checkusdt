@@ -2,68 +2,102 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>能量闪租 - 查个U</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="logo">
-                <span>查个U</span>
-                <small>USDT交易记录查询工具</small>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html">首页</a>
-                <a href="energy.html">能量闪租</a>
-            </nav>
+<body class="page-template-default usdt-theme">
+<header class="site-header">
+    <div class="header-topline"></div>
+    <div class="container header-inner">
+        <a class="site-logo" href="index.html"><span>查个U</span><small>USDT交易记录查询工具</small></a>
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="usdt.html">USDT转账查询</a></li>
+                <li><a href="energy.html">能量闪租</a></li>
+                <li><a href="guide.html">使用教程</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="site-main page-hero">
+    <div class="container">
+        <div class="section-title">
+            <span>TRX 能量闪租</span>
+            <h2>一笔也是批发价 · 自动到账</h2>
+            <p>请直接向下方地址转入 TRX，系统将在 3-10 秒内自动为您委托能量。</p>
         </div>
-    </header>
 
-    <main class="container">
-        <section class="rental-hero">
-            <h1>TRX 能量闪租</h1>
-            <p>一笔也是批发价 · 自动到账 · 1 小时有效</p>
-        </section>
-
-        <div class="rental-grid">
-            <!-- 收款地址与规则 -->
-            <div class="rental-address-box">
-                <label>请向以下地址转入 TRX（仅限 TRX）</label>
-                <div class="address-row">
-                    <!-- 把你的收款地址填在这里 -->
-                    <code id="rentalAddress">TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1</code>
-                    <button class="copy-btn" onclick="copyAddress()">复制地址</button>
+        <div class="two-column" style="text-align: left;">
+            <div class="content-box">
+                <h3>闪租收款地址 (仅限 TRX)</h3>
+                <div style="background: #f7f8fb; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 16px; word-break: break-all; border: 1px dashed #ccc;">
+                    TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1 <!-- 替换为你自己的真实地址 -->
                 </div>
+                <button class="header-action" style="border:none; cursor:pointer;" onclick="navigator.clipboard.writeText('TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1'); alert('地址已复制');">一键复制地址</button>
 
-                <div class="rental-rules">
-                    <h3>套餐与规则</h3>
-                    <ul>
-                        <li><strong>2 TRX = 65,000 能量</strong></li>
-                        <li><strong>4 TRX = 131,000 能量</strong> (首次接收USDT需要)</li>
-                        <li>单次最多购买 <strong>2 笔</strong>，不可转账大于 <strong>50 TRX</strong></li>
-                        <li>转账后等待 3-10 秒，能量自动到账</li>
-                    </ul>
-                </div>
+                <ul class="check-list" style="margin-top: 30px;">
+                    <li><strong>2 TRX = 65,000 能量</strong></li>
+                    <li><strong>4 TRX = 131,000 能量</strong> (接收方首次持有USDT)</li>
+                    <li>单次最多购买 <strong>2 笔</strong>，不可转账大于 <strong>50 TRX</strong></li>
+                    <li>能量有效期为 <strong>1 小时</strong>，过期自动回收</li>
+                </ul>
             </div>
 
-            <!-- 订单查询 -->
-            <div class="order-query-box">
+            <aside class="side-card warning-card">
                 <h3>查询闪租状态</h3>
-                <p>输入你的转账交易哈希 (TxID) 查询进度：</p>
-                <div class="query-form">
-                    <input type="text" id="orderTxId" placeholder="输入 TxID (64位字符)">
-                    <button onclick="queryOrder()">查询</button>
-                </div>
-                <div id="orderResult" class="order-result"></div>
-            </div>
+                <p>转账完成后，输入交易哈希(TxID)查询是否到账：</p>
+                <input type="text" id="orderTxId" placeholder="输入 64 位 TxID" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
+                <button onclick="checkOrder()" style="width:100%; background:#d91f26; color:#fff; border:none; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer;">查询订单</button>
+                <div id="orderResult" style="margin-top:15px; font-size:14px;"></div>
+            </aside>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="site-footer">
+<footer class="site-footer">
+    <div class="container footer-bottom">
         <p>© 2026 查个U. 所有查询结果仅供参考。</p>
-    </footer>
+    </div>
+</footer>
 
-    <script src="app.js"></script>
+<script>
+    // 后端 API 地址
+    const API_BASE_URL = 'https://chageu-energy-backend.onrender.com';
+
+    async function checkOrder() {
+        const txId = document.getElementById('orderTxId').value.trim();
+        const resultDiv = document.getElementById('orderResult');
+        
+        if (txId.length !== 64) {
+            resultDiv.innerHTML = '<span style="color:red;">请输入 64 位正确的 TxID</span>';
+            return;
+        }
+        
+        resultDiv.innerHTML = '<span style="color:#64748b;">查询中，若是首次访问，免费服务器可能需要唤醒50秒...</span>';
+        
+        try {
+            const res = await fetch(`${API_BASE_URL}/api/orders/${txId}`);
+            if (res.status === 404) {
+                resultDiv.innerHTML = '<span style="color:red;">未找到订单，请确认是否转账或等待一分钟。</span>';
+                return;
+            }
+            const data = await res.json();
+            if (data.status === 'success') {
+                resultDiv.innerHTML = `<span style="color:green;">✅ 能量已成功到账！<br>接收地址：${data.from_address}<br>能量数：${data.energy_amount}</span>`;
+            } else if (data.status === 'pending' || data.status === 'delegating') {
+                resultDiv.innerHTML = '<span style="color:orange;">⏳ 系统已识别到账，正在委托，请稍后再查。</span>';
+            } else {
+                resultDiv.innerHTML = `<span style="color:red;">❌ 失败：${data.error_message || '未知错误'}</span>`;
+            }
+        } catch (e) {
+            resultDiv.innerHTML = '<span style="color:red;">网络错误，请稍后重试。</span>';
+        }
+    }
+</script>
 </body>
 </html>
