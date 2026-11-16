@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
 </head>
 <body class="page-template-default usdt-theme">
+
 <header class="site-header">
     <div class="header-topline"></div>
     <div class="container header-inner">
@@ -28,33 +29,36 @@
 <main class="site-main page-hero">
     <div class="container">
         <div class="section-title">
-            <span>TRX 能量闪租</span>
-            <h2>一笔也是批发价 · 自动到账</h2>
-            <p>请直接向下方地址转入 TRX，系统将在 3-10 秒内自动为您委托能量。</p>
+            <span>能量闪租</span>
+            <h2>TRX 能量供应商</h2>
+            <p>一笔也是批发价，极速到账。</p>
         </div>
 
-        <div class="two-column" style="text-align: left;">
-            <div class="content-box">
-                <h3>闪租收款地址 (仅限 TRX)</h3>
-                <div style="background: #f7f8fb; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 16px; word-break: break-all; border: 1px dashed #ccc;">
-                    TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1 <!-- 记得替换为你自己的真实地址 -->
-                </div>
-                <button class="header-action" style="border:none; cursor:pointer;" onclick="navigator.clipboard.writeText('TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1'); alert('地址已复制');">一键复制地址</button>
-                <ul class="check-list" style="margin-top: 30px;">
-                    <li><strong>2 TRX = 65,000 能量</strong></li>
-                    <li><strong>4 TRX = 131,000 能量</strong> (接收方首次持有USDT)</li>
-                    <li>单次最多购买 <strong>2 笔</strong>，不可转账大于 <strong>50 TRX</strong></li>
-                    <li>能量有效期为 <strong>1 小时</strong>，过期自动回收</li>
-                </ul>
+        <!-- 使用原站的 content-box 布局 -->
+        <div class="content-box" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <h3>闪租收款地址 (仅支持 TRX)</h3>
+            <div style="background: #f7f8fb; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 16px; word-break: break-all; border: 1px dashed #ccc; display: flex; justify-content: space-between; align-items: center;">
+                <span id="rentalAddress">TD6F9MiGuJVnRma98tPSSsp4qNUf3Secnh</span>
+                <button style="background:#d91f26; color:#fff; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;" onclick="copyAddress()">复制</button>
             </div>
 
-            <aside class="side-card warning-card">
-                <h3>查询闪租状态</h3>
-                <p>转账完成后，输入交易哈希(TxID)查询是否到账：</p>
-                <input type="text" id="orderTxId" placeholder="输入 64 位 TxID" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
-                <button onclick="checkOrder()" style="width:100%; background:#d91f26; color:#fff; border:none; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer;">查询订单</button>
-                <div id="orderResult" style="margin-top:15px; font-size:14px;"></div>
-            </aside>
+            <h3 style="margin-top: 30px;">兑换规则 (必读)</h3>
+            <ul class="check-list">
+                <li><strong>有U的地址兑换能量：1.5 TRX</strong> (接收方已持有 USDT)</li>
+                <li><strong>没U的地址兑换能量：3 TRX</strong> (接收方首次接收 USDT，需要双倍能量)</li>
+                <li>请在转账后耐心等待，系统会自动识别到账并委托能量。</li>
+                <li>能量有效期为 1 小时。</li>
+            </ul>
+
+            <div class="site-notice-red" style="margin-top: 30px;">
+                <strong>查询闪租状态：</strong>
+                如果您已转账，可输入您的交易哈希(TxID)查询是否到账：
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <input type="text" id="orderTxId" placeholder="输入 64 位 TxID" style="flex:1; padding:10px; border:1px solid #ccc; border-radius:5px;">
+                    <button onclick="checkOrder()" style="background:#d91f26; color:#fff; border:none; padding:0 20px; border-radius:5px; font-weight:bold; cursor:pointer;">查询</button>
+                </div>
+                <div id="orderResult" style="margin-top:15px; font-size:14px; font-weight:bold;"></div>
+            </div>
         </div>
     </div>
 </main>
@@ -62,7 +66,13 @@
 <footer class="site-footer">
     <div class="container footer-bottom"><p>© 2026 查个U. 所有查询结果仅供参考。</p></div>
 </footer>
+
 <script>
+    function copyAddress() {
+        const text = document.getElementById('rentalAddress').innerText;
+        navigator.clipboard.writeText(text).then(() => alert('✅ 收款地址已复制'));
+    }
+
     const API_BASE_URL = 'https://chageu-energy-backend.onrender.com';
     async function checkOrder() {
         const txId = document.getElementById('orderTxId').value.trim();
