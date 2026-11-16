@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>能量闪租 - 查个U</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span>查个U</span>
+                <small>USDT交易记录查询工具</small>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">首页</a>
+                <a href="energy.html">能量闪租</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="rental-hero">
+            <h1>TRX 能量闪租</h1>
+            <p>一笔也是批发价 · 自动到账 · 1 小时有效</p>
+        </section>
+
+        <div class="rental-grid">
+            <!-- 收款地址与规则 -->
+            <div class="rental-address-box">
+                <label>请向以下地址转入 TRX（仅限 TRX）</label>
+                <div class="address-row">
+                    <!-- 把你的收款地址填在这里 -->
+                    <code id="rentalAddress">TY8vX6w1J5kR9pL3zN4mQ7cB2aF5eH8gK1</code>
+                    <button class="copy-btn" onclick="copyAddress()">复制地址</button>
+                </div>
+
+                <div class="rental-rules">
+                    <h3>套餐与规则</h3>
+                    <ul>
+                        <li><strong>2 TRX = 65,000 能量</strong></li>
+                        <li><strong>4 TRX = 131,000 能量</strong> (首次接收USDT需要)</li>
+                        <li>单次最多购买 <strong>2 笔</strong>，不可转账大于 <strong>50 TRX</strong></li>
+                        <li>转账后等待 3-10 秒，能量自动到账</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 订单查询 -->
+            <div class="order-query-box">
+                <h3>查询闪租状态</h3>
+                <p>输入你的转账交易哈希 (TxID) 查询进度：</p>
+                <div class="query-form">
+                    <input type="text" id="orderTxId" placeholder="输入 TxID (64位字符)">
+                    <button onclick="queryOrder()">查询</button>
+                </div>
+                <div id="orderResult" class="order-result"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 查个U. 所有查询结果仅供参考。</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
