@@ -7,11 +7,17 @@
     <link rel='stylesheet' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
 </head>
 <body class="page-template-default usdt-theme">
+
 <header class="site-header">
     <div class="header-topline"></div>
     <div class="container header-inner">
-        <a class="site-logo" href="index.html"><span>查个U</span><small>USDT交易记录查询工具</small></a>
-        <nav class="main-nav">
+        <a class="site-logo" href="index.html">
+            <span>查个U</span><small>USDT交易记录查询工具</small>
+        </a>
+        <button class="menu-toggle" type="button" data-menu-toggle>
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" data-main-nav>
             <ul class="nav-menu">
                 <li><a href="index.html">首页</a></li>
                 <li><a href="usdt.html">USDT转账查询</a></li>
@@ -21,30 +27,78 @@
                 <li><a href="contact.html">联系我们</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <a class="header-action" href="usdt.html">立即查询</a>
+        </div>
     </div>
 </header>
 
 <main class="site-main page-hero">
     <div class="container">
         <div class="section-title">
-            <span>页面标题</span>
-            <h2>这里是 USDT转账查询 标题</h2>
-            <p>这里是副标题</p>
-        </div>
-        
-        <!-- 你的正文内容放在这里 -->
-        <div class="content-box" style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <p>如果你需要查询地址，可以直接复制粘贴。</p>
-            <p>这里写使用教程的文字，或者关于我们的公司介绍，或者联系我们的TG客服链接。</p>
+            <span>查询功能</span>
+            <h2>USDT 转账记录查询</h2>
+            <p>请输入交易哈希 (TxID) 或 波场地址进行查询。</p>
         </div>
 
+        <div class="usdt-search-panel" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <form class="usdt-search-form" action="https://tronscan.org/" method="get" target="_blank">
+                <input type="text" name="q" placeholder="请输入USDT地址或交易哈希" autocomplete="off" required>
+                <button type="submit">立即查询</button>
+            </form>
+            <p class="usdt-search-note" style="margin-top: 20px;">
+                <strong>温馨提示：</strong>点击查询后，将跳转至波场官方区块链浏览器 (TronScan) 查看公开的链上数据。本站不存储任何用户的查询记录和私钥信息。
+            </p>
+        </div>
+
+        <div class="two-column" style="margin-top: 40px; text-align: left;">
+            <div class="content-box">
+                <span class="mini-title">查询说明</span>
+                <h3>如何正确查询？</h3>
+                <ul class="check-list">
+                    <li>如果是交易所提现，请在提现详情页复制 <strong>TxID (交易哈希)</strong>。</li>
+                    <li>如果是钱包转账，请在账单详情中复制哈希或对方的收款地址。</li>
+                    <li>USDT 基于波场网络 (TRC20) 的转账，均可通过此工具查询。</li>
+                </ul>
+            </div>
+            <aside class="side-card warning-card">
+                <h3>安全提醒</h3>
+                <p>请勿在搜索引擎或任何第三方网站输入您的私钥、助记词或钱包密码。区块链数据公开透明，仅需地址或哈希即可查询。</p>
+            </aside>
+        </div>
     </div>
 </main>
 
 <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3>USDT转账查询</h3>
+            <p>查个U提供USDT转账查询、USDT交易查询、USDT地址查询和交易哈希查询等公开链上信息查询服务。</p>
+            <p class="footer-warning">本站不提供数字货币交易、钱包托管、充值提现、资金找回、投资建议或担保服务。</p>
+        </div>
+        <div>
+            <h4>核心功能</h4>
+            <a href="usdt.html">USDT转账查询</a>
+            <a href="energy.html">能量闪租</a>
+            <a href="guide.html">使用教程</a>
+        </div>
+        <div>
+            <h4>网站信息</h4>
+            <a href="about.html">关于我们</a>
+            <a href="contact.html">联系我们</a>
+        </div>
+        <div>
+            <h4>说明页面</h4>
+            <a href="privacy.html">隐私政策</a>
+            <a href="terms.html">服务条款</a>
+            <a href="disclaimer.html">免责声明</a>
+        </div>
+    </div>
     <div class="container footer-bottom">
         <p>© 2026 查个U. 所有查询结果仅供参考。</p>
     </div>
 </footer>
+
+<script src="https://chauba.com/wp-content/themes/chau/assets/js/app.js?ver=1.1.0"></script>
 </body>
 </html>
