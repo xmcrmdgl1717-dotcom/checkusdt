@@ -19,7 +19,6 @@
 <header class="site-header">
     <div class="header-topline"></div>
     <div class="container header-inner">
-        <!-- 这里已经替换为图片 Logo -->
         <a class="site-logo" href="index.html">
             <img src="logo.png" alt="查个U" style="height: 48px; width: auto; object-fit: contain;">
         </a>
@@ -61,7 +60,6 @@
                     <p class="usdt-search-note">本站仅查询公开链上信息，请勿输入私钥、助记词、钱包密码、交易所密码或验证码。</p>
                 </div>
 
-                <!-- 汇率卡片区，由底部的 JS 动态填充 -->
                 <section class="usdt-rate-bar" data-rate-wrap>
                     <div class="rate-card"><span>USDT参考汇率</span><strong data-rate="USDT">加载中...</strong></div>
                     <div class="rate-card"><span>TRX参考汇率</span><strong data-rate="TRX">加载中...</strong></div>
@@ -78,15 +76,10 @@
 
     <section class="home-service-section">
         <div class="container">
-            <div class="service-grid">
+            <!-- 修改为两列布局，因为去掉了TG相关的两个卡片 -->
+            <div class="service-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <a class="service-card service-energy" href="energy.html">
                     <div class="service-icon">租</div><h3>能量供应商</h3><p>一笔也是批发价</p>
-                </a>
-                <a class="service-card service-tg" href="https://t.me/doubaotrx_bot" target="_blank">
-                    <div class="service-icon">TG</div><h3>TG机器人</h3><p>USDT与TRX交易提醒</p>
-                </a>
-                <a class="service-card service-trx" href="https://t.me/doubaotrx_bot" target="_blank">
-                    <div class="service-icon">TRX</div><h3>TRX自动闪兑</h3><p>USDT⇌TRX</p>
                 </a>
                 <a class="service-card service-usdt" href="energy.html">
                     <div class="service-icon">U</div><h3>免TRX转账USDT</h3><p>多元化的能量类型</p>
@@ -198,25 +191,19 @@
   })();
 </script>
 <script id="usdtcn-app-js" src="https://chauba.com/wp-content/themes/chau/assets/js/app.js?ver=1.1.0"></script>
-
-<!-- 真实汇率获取脚本 -->
 <script>
 document.addEventListener("DOMContentLoaded", async function() {
     try {
-        // 1. 获取 TRX 兑 USDT 实时价格 (Binance 公共接口，无需 Key)
         const trxRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT');
         const trxData = await trxRes.json();
-        const trxPrice = parseFloat(trxData.price).toFixed(4); // 例如: 0.1234
+        const trxPrice = parseFloat(trxData.price).toFixed(4);
 
-        // 2. 获取 USD 兑 CNY 实时汇率 (开源免费接口)
         const fiatRes = await fetch('https://open.er-api.com/v6/latest/USD');
         const fiatData = await fiatRes.json();
-        const usdCny = fiatData.rates.CNY; // 例如: 7.24
+        const usdCny = fiatData.rates.CNY; 
         
-        // 计算 TRX 兑 CNY
         const trxCny = (parseFloat(trxPrice) * usdCny).toFixed(4);
 
-        // 3. 将数据更新到网页上
         document.querySelector('[data-rate="USDT"]').textContent = '≈ 1.00 USD';
         document.querySelector('[data-rate="TRX"]').textContent = trxPrice + ' USDT';
         document.querySelector('[data-rate="USDT_CNY"]').textContent = '≈ ' + usdCny.toFixed(2) + ' CNY';
@@ -224,7 +211,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     } catch (error) {
         console.error("汇率接口获取失败", error);
-        // 如果接口超时或失败，显示默认占位
         document.querySelector('[data-rate="USDT"]').textContent = '≈ 1.00 USD';
         document.querySelector('[data-rate="TRX"]').textContent = '0.1234 USDT';
         document.querySelector('[data-rate="USDT_CNY"]').textContent = '≈ 7.24 CNY';
