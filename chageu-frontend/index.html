@@ -2,65 +2,207 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>查个U - USDT转账查询与能量闪租</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>USDT转账查询_USDT交易查询_USDT转账记录查询工具</title>
+    <link rel="stylesheet" href="main.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="logo">
-                <span>查个U</span>
-                <small>USDT交易记录查询工具</small>
-            </div>
-            <nav class="nav-menu">
-                <a href="/">首页</a>
-                <a href="energy.html">能量闪租</a>
-            </nav>
+<body class="home blog wp-theme-chau usdt-theme">
+
+<header class="site-header">
+    <div class="header-topline"></div>
+    <div class="container header-inner">
+        <a class="site-logo" href="#">
+            <span>查个U</span><small>USDT交易记录查询工具</small>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="打开菜单" data-menu-toggle>
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" data-main-nav>
+            <ul class="nav-menu">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">USDT转账查询</a></li>
+                <li><a href="#">能量闪租</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a class="header-action" href="#">立即查询</a>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main class="container">
-        <!-- 顶部查询区 -->
-        <section class="hero-card">
-            <div class="hero-kicker">USDT转账查询 · 交易哈希查询</div>
-            <h1>USDT转账查询工具</h1>
-            <p>输入USDT地址或交易哈希，查询公开链上转账记录、到账状态和交易详情。</p>
-            
-            <div class="usdt-search-panel">
-                <form class="usdt-search-form" onsubmit="handleSearch(event)">
-                    <input type="text" id="searchInput" placeholder="请输入USDT地址或交易哈希" required>
-                    <button type="submit">立即查询</button>
-                </form>
-                <p class="usdt-search-note">本站仅查询公开链上信息，请勿输入私钥或密码。</p>
+<main class="site-main">
+    <section class="home-hero">
+        <div class="container">
+            <div class="hero-card">
+                <div class="hero-kicker">USDT转账查询 · USDT交易查询 · 哈希查询</div>
+                <h1>USDT转账查询工具</h1>
+                <p>输入USDT地址或交易哈希，查询公开链上转账记录、到账状态、转入转出信息和交易详情。</p>
+
+                <div class="usdt-search-panel">
+                    <form class="usdt-search-form" action="#" method="get" target="_blank">
+                        <input type="text" name="address" placeholder="请输入USDT地址或交易哈希" autocomplete="off" required>
+                        <button type="submit">立即查询</button>
+                    </form>
+                    <div class="usdt-hot-links">
+                        <span>常用：</span>
+                        <a href="#">USDT转账查询</a>
+                        <a href="#">使用教程</a>
+                    </div>
+                    <p class="usdt-search-note">本站仅查询公开链上信息，请勿输入私钥、助记词、钱包密码、交易所密码或验证码。</p>
+                </div>
+
+                <section class="usdt-rate-bar" data-rate-wrap>
+                    <div class="rate-card"><span>USDT参考汇率</span><strong data-rate="USDT">加载中</strong></div>
+                    <div class="rate-card"><span>TRX参考汇率</span><strong data-rate="TRX">加载中</strong></div>
+                    <div class="rate-card"><span>USDT/CNY</span><strong data-rate="USDT_CNY">加载中</strong></div>
+                    <div class="rate-card"><span>TRX/CNY</span><strong data-rate="TRX_CNY">加载中</strong></div>
+                </section>
             </div>
 
-            <!-- 汇率模块 -->
-            <div class="rate-bar" id="rateBar">
-                <div class="rate-card"><span>TRX参考汇率</span><strong id="trxPrice">加载中...</strong></div>
-                <div class="rate-card"><span>USDT参考汇率</span><strong id="usdtPrice">1.00 USD</strong></div>
+            <div class="site-notice-red">
+                <strong>重要提醒：</strong>
+                本站只提供USDT转账公开链上信息查询，不提供交易、充值、提现、资金找回或投资建议。
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 服务入口 -->
-        <section class="services">
-            <a href="energy.html" class="service-card">
-                <div class="icon">⚡</div>
-                <h3>能量闪租</h3>
-                <p>一笔也是批发价，自动到账</p>
-            </a>
-            <a href="https://t.me/你的TG机器人" target="_blank" class="service-card">
-                <div class="icon">🤖</div>
-                <h3>TG机器人</h3>
-                <p>USDT与TRX交易提醒</p>
-            </a>
-        </section>
-    </main>
+    <section class="home-service-section">
+        <div class="container">
+            <div class="service-grid">
+                <a class="service-card service-energy" href="#">
+                    <div class="service-icon">租</div>
+                    <h3>能量供应商</h3>
+                    <p>一笔也是批发价</p>
+                </a>
+                <a class="service-card service-tg" href="#">
+                    <div class="service-icon">TG</div>
+                    <h3>TG机器人</h3>
+                    <p>USDT与TRX交易提醒</p>
+                </a>
+                <a class="service-card service-trx" href="#">
+                    <div class="service-icon">TRX</div>
+                    <h3>TRX自动闪兑</h3>
+                    <p>USDT⇌TRX</p>
+                </a>
+                <a class="service-card service-usdt" href="#">
+                    <div class="service-icon">U</div>
+                    <h3>免TRX转账USDT</h3>
+                    <p>多元化的能量类型</p>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <footer class="site-footer">
+    <section class="container section">
+        <div class="section-title">
+            <span>查询功能</span>
+            <h2>USDT转账记录查询入口</h2>
+            <p>本站聚焦USDT转账查询，只做USDT公开链上转账记录相关功能。</p>
+        </div>
+        <div class="tool-grid two-tools">
+            <a class="tool-card" href="#">
+                <i>USDT</i>
+                <h3>USDT转账查询</h3>
+                <p>查询USDT地址、转账记录、交易哈希和到账状态。</p>
+            </a>
+            <a class="tool-card" href="#">
+                <i>GUIDE</i>
+                <h3>使用教程</h3>
+                <p>了解如何通过USDT地址或哈希值查询USDT转账记录。</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="container section two-column">
+        <div class="content-box">
+            <span class="mini-title">使用说明</span>
+            <h2>如何查询USDT转账记录？</h2>
+            <p>复制USDT钱包地址或交易哈希，粘贴到查询框中，即可查看该笔USDT转账相关的公开链上信息。如果是交易所提现记录，可以在提现详情页复制TxID或哈希值进行查询。</p>
+            <ul class="check-list">
+                <li>查看USDT转账是否已经上链。</li>
+                <li>核对转入地址、转出地址和金额。</li>
+                <li>查看交易哈希、时间和状态。</li>
+                <li>确认USDT是否已经到账。</li>
+            </ul>
+        </div>
+        <aside class="side-card warning-card">
+            <h3>安全提醒</h3>
+            <p>本站只用于查询公开链上信息，不提供交易、充值、提现、钱包托管或资产找回服务。不要输入私钥、助记词、钱包密码、交易所密码或验证码。</p>
+            <a href="#">查看免责声明</a>
+        </aside>
+    </section>
+
+    <section class="container section">
+        <div class="section-title">
+            <span>常见问题</span>
+            <h2>USDT转账查询常见问题</h2>
+            <p>下面内容为静态中文正文，适合百度抓取。</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>USDT转账查询是什么？</h3>
+                <p>USDT转账查询是通过USDT地址或交易哈希查看公开链上转账记录的方法，可用于核对转账状态和交易信息。</p>
+            </div>
+            <div class="faq-item">
+                <h3>哈希值查询有什么用？</h3>
+                <p>哈希值也叫TxID，可以定位一笔USDT转账，查看交易是否成功、是否确认、金额和地址是否正确。</p>
+            </div>
+            <div class="faq-item">
+                <h3>本站能找回转错的U吗？</h3>
+                <p>不能。本站只提供公开链上数据查询，不能撤回交易、冻结地址、找回资金或处理钱包权限问题。</p>
+            </div>
+            <div class="faq-item">
+                <h3>为什么查询不到？</h3>
+                <p>可能是输入内容格式不对、交易尚未上链，或者对应接口尚未返回完整数据。请核对地址或交易哈希。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3>USDT转账查询</h3>
+            <p>查个U提供USDT转账查询、USDT交易查询、USDT地址查询和交易哈希查询等公开链上信息查询服务。</p>
+            <p class="footer-warning">本站不提供数字货币交易、钱包托管、充值提现、资金找回、投资建议或担保服务。</p>
+        </div>
+        <div>
+            <h4>核心功能</h4>
+            <a href="#">USDT转账查询</a>
+            <a href="#">能量闪租</a>
+            <a href="#">使用教程</a>
+        </div>
+        <div>
+            <h4>网站信息</h4>
+            <a href="#">关于我们</a>
+            <a href="#">联系我们</a>
+        </div>
+        <div>
+            <h4>说明页面</h4>
+            <a href="#">隐私政策</a>
+            <a href="#">服务条款</a>
+            <a href="#">免责声明</a>
+        </div>
+    </div>
+    <div class="container footer-bottom">
         <p>© 2026 查个U. 所有查询结果仅供参考。</p>
-    </footer>
+    </div>
+</footer>
 
-    <script src="app.js"></script>
+<button class="backtop" type="button" data-backtop>↑</button>
+
+<script>
+    // 模拟原站的 USDTCN_DATA 变量，确保 app.js 能正常加载汇率
+    var USDTCN_DATA = {
+        homeUrl: window.location.origin + "/",
+        restUrl: "#",
+        priceUrl: "https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT", // 简化：用 Binance 替代
+        resultUrl: "#"
+    };
+</script>
+<script src="app.js"></script>
 </body>
 </html>
