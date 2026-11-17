@@ -7,8 +7,19 @@
     <link rel='stylesheet' id='usdtcn-main-css' href='https://chauba.com/wp-content/themes/chau/assets/css/main.css?ver=1.1.0' media='all' />
     <style>
         body { opacity: 0; transition: opacity 0.3s ease; }
-        .lang-switch-btn { background: none; border: 1px solid #d91f26; color: #d91f26; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; margin-right: 15px; transition: all 0.2s; }
+        .header-inner { display: flex !important; align-items: center !important; justify-content: space-between !important; flex-wrap: nowrap !important; }
+        .site-logo { flex-shrink: 0; }
+        .main-nav { flex: 1; }
+        .menu-toggle { display: none !important; width: 44px !important; height: 44px !important; background: #fff1f1 !important; border-radius: 12px !important; border: none !important; padding: 10px !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; gap: 5px !important; cursor: pointer !important; flex-shrink: 0 !important; margin: 0 10px !important; }
+        .menu-toggle span { display: block !important; width: 22px !important; height: 2px !important; background-color: #d91f26 !important; border-radius: 2px !important; margin: 0 !important; }
+        .header-actions { display: flex !important; align-items: center !important; gap: 8px !important; flex-shrink: 0 !important; }
+        .lang-switch-btn { background: none; border: 1px solid #d91f26; color: #d91f26; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.2s; }
         .lang-switch-btn:hover { background: #d91f26; color: #fff; }
+        @media (max-width: 980px) {
+            .menu-toggle { display: flex !important; }
+            .header-action { padding: 8px 14px !important; font-size: 14px !important; }
+            .lang-switch-btn { padding: 5px 10px !important; font-size: 12px !important; }
+        }
         .energy-rental-wrap { min-height: 100vh; padding: 34px 14px 60px; background: linear-gradient(180deg, #f4f9ff 0%, #ffffff 100%); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; }
         .energy-rental-card { max-width: 560px; margin: 0 auto; padding: 22px 18px 28px; background: #ffffff; border-radius: 18px; box-shadow: 0 16px 45px rgba(20, 70, 120, .12); border: 1px solid #e7f0fb; }
         .energy-rental-title { margin: 0 0 18px; text-align: center; font-size: 26px; line-height: 1.25; color: #102033; font-weight: 800; }
@@ -46,7 +57,7 @@
                 <li><a href="about.html" data-i18n="nav_about">关于我们</a></li>
             </ul>
         </nav>
-        <div class="header-actions" style="display: flex; align-items: center;">
+        <div class="header-actions">
             <button class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">EN</button>
             <a class="header-action" href="usdt.html" data-i18n="nav_search_btn">立即查询</a>
         </div>
