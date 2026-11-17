@@ -30,7 +30,7 @@
                 <li><a href="energy.html" data-i18n="nav_energy">能量闪租</a></li>
                 <li><a href="guide.html" data-i18n="nav_guide">使用教程</a></li>
                 <li><a href="about.html" data-i18n="nav_about">关于我们</a></li>
-                <li><a href="contact.html" data-i18n="nav_contact">联系我们</a></li>
+                <!-- 联系我们菜单已移除 -->
             </ul>
         </nav>
         <div class="header-actions" style="display: flex; align-items: center;">
@@ -166,7 +166,7 @@
         <div>
             <h4 data-i18n="footer_info">网站信息</h4>
             <a href="about.html" data-i18n="nav_about">关于我们</a>
-            <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+            <!-- 联系我们链接已移除 -->
         </div>
         <div>
             <h4 data-i18n="footer_pages">说明页面</h4>
@@ -189,33 +189,6 @@
   s.parentNode.insertBefore(mtj, s);
   })();
 </script>
-<!-- 删除了外部 app.js，改用 lang.js 统一处理 -->
 <script src="lang.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    if(document.querySelector('[data-rate="USDT"]')) {
-        (async function fetchRates() {
-            try {
-                const trxRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=TRXUSDT');
-                const trxData = await trxRes.json();
-                const trxPrice = parseFloat(trxData.price).toFixed(4);
-                const fiatRes = await fetch('https://open.er-api.com/v6/latest/USD');
-                const fiatData = await fiatRes.json();
-                const usdCny = fiatData.rates.CNY; 
-                const trxCny = (parseFloat(trxPrice) * usdCny).toFixed(4);
-                document.querySelector('[data-rate="USDT"]').textContent = '≈ 1.00 USD';
-                document.querySelector('[data-rate="TRX"]').textContent = trxPrice + ' USDT';
-                document.querySelector('[data-rate="USDT_CNY"]').textContent = '≈ ' + usdCny.toFixed(2) + ' CNY';
-                document.querySelector('[data-rate="TRX_CNY"]').textContent = '≈ ' + trxCny + ' CNY';
-            } catch (error) {
-                document.querySelector('[data-rate="USDT"]').textContent = '≈ 1.00 USD';
-                document.querySelector('[data-rate="TRX"]').textContent = '0.1234 USDT';
-                document.querySelector('[data-rate="USDT_CNY"]').textContent = '≈ 7.24 CNY';
-                document.querySelector('[data-rate="TRX_CNY"]').textContent = '≈ 0.89 CNY';
-            }
-        })();
-    }
-});
-</script>
 </body>
 </html>
